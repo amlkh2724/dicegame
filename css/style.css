@@ -16,7 +16,139 @@ body {
     grid-row-gap: 0px;
 }
 
-/* .firstSide{
+.firstSide {
     width: 100%;
-    background-color: red;
-} */
+    height: 100vh;
+    background-color: rgba(252, 78, 78, 0.887);
+}
+
+.player1-side {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(235, 194, 194);
+}
+
+.player2-side {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(226, 164, 164);
+}
+
+.lastSide {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(86, 42, 86, 0.922)
+}
+
+.flexItem {
+    margin: 10%;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.playerName {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.holdNumber {
+    font-size: 5rem;
+    color: rgb(218, 87, 87);
+}
+
+.flexItem2 {
+    margin: 10%;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.playerNameSecondPlayer {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.holdNumberSecondPlayer {
+    font-size: 5rem;
+    color: rgb(218, 87, 87);
+}
+
+.current {
+    color: #ffff;
+    background-color: rgba(71, 19, 19, 0.764);
+    margin: 0 auto;
+    width: 8rem;
+    border-radius: 0.8rem;
+}
+
+.flexCurrent {
+    font-size: 0.7rem;
+    text-align: center;
+    margin-top: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 5rem;
+    gap: 1rem;
+
+}
+.currentNumber{
+    font-size: 1.4rem;
+}
+.currentPlayerTwo{
+    color: #ffff;
+    background-color: rgba(71, 19, 19, 0.764);
+    margin: 0 auto;
+    width: 8rem;
+    border-radius: 0.8rem;
+}
+.flexCurrent2{
+    font-size: 0.7rem;
+    text-align: center;
+    margin-top: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 5rem;
+    gap: 1rem;
+}
+.fiveElement{
+    align-items: center;
+    position: relative;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    left:252%
+}
+.dicePicture1{
+    width: 5rem;
+    height: 5rem;
+    /* background: url(../assest/dice-3.png) no-repeat center center/cover; */
+}
+.dicePicture2{
+    width: 5rem;
+    height: 5rem;
+    background: url(../assest/dice-5.png) no-repeat center center/cover;
+}
+.rolldice{
+    border:none;
+    width: 7rem;
+    height: 1.5rem;
+    border-radius: 1rem;
+}
+.hold{
+    border: none;
+    width: 5rem;
+    border-radius: 1rem;
+    height: 1.5rem;
+}
+.display{
+    display: none;
+}

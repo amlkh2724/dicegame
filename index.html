@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +8,49 @@
     <title>dice-roll</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
     <div class="containerAllBody">
-        <div class="firstSide">asdsad</div>
-
-
+        <div class="firstSide">
+            <div class="fiveElement">
+                <button class="newgame"><span></span>NEW GAME</button>
+                <img src="./dice-3.png" alt="" class="dicePicture1">
+                <img src="./dice-5.png" alt="" class="dicePicture2">
+                <button class="rolldice">ROLL DICE</button>
+                <button class="hold">HOLD</button>
+            </div>
+        </div>
+        <div class="player1-side">
+            <div class="flexItem">
+                <div class="playerName">PLAYER 1</div>
+                <div class="holdNumber">0</div>
+            </div>
+            <div class="current">
+                <div class="flexCurrent">
+                    <p>CURRENT</p>
+                    <div class="currentNumber">0</div>
+                </div>
+            </div>
+         
+        </div>
+         
+        <div class="player2-side">
+        
+            <div class="flexItem2">
+                <div class="playerNameSecondPlayer">PLAYER 2</div>
+                <div class="holdNumberSecondPlayer">0</div>
+            </div>
+            <div class="currentPlayerTwo">
+                
+                <div class="flexCurrent2">
+                    <p>CURRENT</p>
+                    <div class="currentNumber2">0</div>
+                </div>
+            </div>
+        </div>
+        <div class="lastSide"></div>
     </div>
-<script src="./js/rollDice.js"></script>
+    <script src="./js/game.js"></script>
 </body>
+
 </html>
