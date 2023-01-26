@@ -1,0 +1,22 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 63.5%;
+}
+
+.containerAllBody {
+    display: grid;
+    grid-template-columns: 2fr repeat(2, 4fr) 2fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+/* .firstSide{
+    width: 100%;
+    background-color: red;
+} */
