@@ -10,17 +10,28 @@
 </head>
 
 <body>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <button class="buttonInformation" onclick="information()">Game Instructions</button>
+          <!-- <span class="close">&times;</span> -->
+          <p>Enter a number between 20 and 500:</p>
+          <input type="text" id="input" placeholder="Enter number here">
+          <button onclick="startGame()">Start Game</button>
+        </div>
+      </div>
+ 
+      <div id="game"></div>
     <div class="containerAllBody">
         <div class="firstSide">
             <div class="fiveElement">
-                <button class="newgame"><span></span>NEW GAME</button>
+                <button class="newgame">NEW GAME</button>
                 <img src="./dice-3.png" alt="" class="dicePicture1">
                 <img src="./dice-5.png" alt="" class="dicePicture2">
                 <button class="rolldice">ROLL DICE</button>
                 <button class="hold">HOLD</button>
             </div>
         </div>
-        <div class="player1-side currentplayer">
+        <div class="player1-side currentplayer playerWinner">
             <div class="flexItem">
                 <div class="playerName">PLAYER 1</div>
                 <div class="holdNumber">0</div>
@@ -31,17 +42,17 @@
                     <div class="currentNumber">0</div>
                 </div>
             </div>
-         
+
         </div>
-         
-        <div class="player2-side">
-        
+
+        <div class="player2-side playerWinner2">
+
             <div class="flexItem2">
                 <div class="playerNameSecondPlayer">PLAYER 2</div>
                 <div class="holdNumberSecondPlayer">0</div>
             </div>
             <div class="currentPlayerTwo">
-                
+
                 <div class="flexCurrent2">
                     <p>CURRENT</p>
                     <div class="currentNumber2">0</div>
