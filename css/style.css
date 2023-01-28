@@ -3,6 +3,31 @@
     margin: 0;
     box-sizing: border-box;
 }
+@keyframes color {
+    0% {
+        background: #bebebe;
+    }
+
+    20% {
+        background: #7e7f7e;
+    }
+
+    40% {
+        background: #785d4f;
+    }
+
+    60% {
+        background: #626262;
+    }
+
+    80% {
+        background: #3d3d3d;
+    }
+
+    100% {
+        background: #942727;
+    }
+}
 
 body {
     font-size: 63.5%;
@@ -10,7 +35,7 @@ body {
 
 .containerAllBody {
     display: grid;
-    grid-template-columns: 2fr repeat(2, 4fr) 2fr;
+    grid-template-columns: 1fr repeat(2, 4fr) 1fr;
     grid-template-rows: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
@@ -39,7 +64,8 @@ body {
 .currentplayer {
     width: 100%;
     height: 100vh;
-    background-color: red;
+    background: linear-gradient(0deg, hsl(0deg 0% 30%) 41%, hsl(0deg 0% 73%) 82%, hsl(0deg 0% 98%) 100%);
+    /* background-color: red; */
 }
 
 .lastSide {
@@ -49,35 +75,43 @@ body {
 }
 
 .flexItem {
-    margin: 10%;
-    gap: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .playerName {
-    font-size: 3rem;
-    font-weight: bold;
+    /* var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+ctx.font = "30px Arial";
+ctx.strokeText("Hello World", 10, 50); */
+    /* border: 1px solid black; */
+    /* let canvas = document.getElementById("myCanvas");
+     let ctx = canvas.getContext("2d");
+    ctx.font = "30px Arial";
+     ctx.strokeText("Hello World", 10, 50); */
+    /* font-size: 3rem;
+    font-weight: bold; */
 }
 
 .holdNumber {
+    /* margin-top: 2rem; */
     font-size: 5rem;
     color: rgb(218, 87, 87);
 }
 
 .flexItem2 {
-    margin: 10%;
-    gap: 1rem;
+    /* margin: 10%; */
+    /* gap: 1rem; */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.playerNameSecondPlayer {
+/* .playerNameSecondPlayer {
     font-size: 3rem;
     font-weight: bold;
-}
+} */
 
 .holdNumberSecondPlayer {
     font-size: 5rem;
@@ -95,7 +129,7 @@ body {
 .flexCurrent {
     font-size: 0.7rem;
     text-align: center;
-    margin-top: 50vh;
+    margin-top: 40vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -120,7 +154,7 @@ body {
 .flexCurrent2 {
     font-size: 0.7rem;
     text-align: center;
-    margin-top: 50vh;
+    margin-top: 40vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -176,12 +210,12 @@ body {
 }
 
 .playerWinner {
-    background-color: black;
+    background: black;
     width: 100%;
     height: 100vh;
 }
 .playerWinner2 {
-    background-color: black;
+    background: black;
     width: 100%;
     height: 100vh;
 }
@@ -197,7 +231,11 @@ body {
     justify-content: center;
     width: 80%;
     height: 90%;
-    background-color: rgb(173, 124, 124);
+    background: #2a2f2f;
+
+    animation: color 9s infinite;
+
+    /* background-color: rgb(173, 124, 124); */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -207,13 +245,38 @@ body {
  /* width: 100px; */
 }
 .modal{
-    visibility:visible;
+    visibility:hidden;
     /* display: block; */
 }
 .buttonInformation{
-    margin: 4rem;
+    /* margin: 2rem; */
     width: 20rem;
     position: absolute;
     top: 0;
     left: 0;
+}
+ .buttonInformation ul li {
+    line-height: 2rem;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+.winnerType{    
+    text-align: center;
+    width: 40%;
+    color: red;
+    font-weight: bold;
+    font-size: 1.5rem;
+    position: absolute;
+   margin-top: 8%;
+
+}
+.winnerType2{    
+    text-align: center;
+    width: 40%;
+    color: red;
+    font-weight: bold;
+    font-size: 1.5rem;
+    position: absolute;
+   margin-top: 8%;
+
 }

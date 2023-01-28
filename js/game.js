@@ -11,10 +11,37 @@ const holdNumberPlayer1 = document.querySelector(".holdNumber")
 const holdNumberPlayer2 = document.querySelector(".holdNumberSecondPlayer")
 const winnerPlayer = document.querySelector(".playerWinner")
 const winnerPlaye2 = document.querySelector(".playerWinner2")
-const buttonInformations=document.querySelector("buttonInformation")
+const buttonInformations = document.querySelector("buttonInformation")
+const winnerText=document.querySelector(".winnerType")
+const winnerText2=document.querySelector(".winnerType2")
+
+let canvas = document.querySelector(".playerNameSecondPlayer");
+// const playerTwo=()=>{
+let ctx = canvas.getContext("2d");
+ctx.font = "30px Arial";
+let textWidth = ctx.measureText("PLAYER 2").width;
+let x = canvas.width / 2 - textWidth / 2;
+let y = canvas.height / 2;
+ctx.strokeText("PLAYER 2", x, y);
+
+// playerTwo()
+
+
+
+let canvas2 = document.querySelector(".playerName");
+// const playerOne=()=>{
+let ctx2 = canvas2.getContext("2d");
+ctx2.font = "30px Arial";
+let textWidth2 = ctx2.measureText("PLAYER 1").width;
+let x2 = canvas2.width / 2 - textWidth2 / 2;
+let y2 = canvas2.height / 2;
+ctx2.strokeText("PLAYER 1", x2, y2);
+
+// playerOne()
+
 
 const restartGame = document.querySelector(".newgame")
-const getModal=document.querySelector(".modal")
+const getModal = document.querySelector(".modal")
 
 
 winnerPlayer.classList.remove("playerWinner")
@@ -29,25 +56,30 @@ let currentPlayer2 = 0;
 let currentPlayer = 1;
 let playing = true;
 let gameTarget = 0
-function startGame(){
-     gameTarget=parseInt(input.value)
-    if(gameTarget > 20 && gameTarget < 500){
-        getModal.style.visibility="hidden"
-    }else{
+function startGame() {
+
+    gameTarget = parseInt(input.value)
+    if (gameTarget > 20 && gameTarget < 500) {
+        getModal.style.visibility = "hidden"
+    } else {
         alert("wrong")
     }
-    
+
 
 }
-function information(){
+function information() {
     let button = document.querySelector(".buttonInformation");
-        if (button.innerHTML === "Game Instructions") {
-            console.log("hi");
-            button.innerHTML = `lorem20akf kasmdkasm kdmka smdkoamns dmkoasm kdmaskmdkaskodmas mdkosamkd maskmd`;
-        } else {
-            button.innerHTML = "Click me";
-        }
+    if (button.innerHTML === "Game Instructions") {
+        button.innerHTML = `<ul>
+            <li>in Your turn-roll the dice (at least once) and accumulate result in "current"</li><hr>
+            <li>You can toll again or click "Hold" to save the points from "Current" and end the turn.</li><hr>
+            <li>Note! if you get 6-6 you will lose all points from "current" and the turn will go your opponent</li><hr>
+            <li>if you managed to reach exactly the target score - you win! if you passed it -you loose...</li><hr>
+            </ul>`;
+    } else {
+        button.innerHTML = "Game Instructions";
     }
+}
 
 
 rollButton.addEventListener("click", function () {
@@ -93,20 +125,44 @@ rollButton.addEventListener("click", function () {
         }
     }
 });
+function playerOneWinner() {
+    winnerPlayer.classList.add("playerWinner");
+    ctx2.fillStyle = 'white';
+    ctx2.fillText('PLAYER 1', x, y);
+    holdNumberPlayer1.style.color = "white"
+    playing = false;
+    return;
+}
+function playerTwoWinner() {
+    winnerPlaye2.classList.add("playerWinner");
+    ctx.fillStyle = 'white';
+    ctx.fillText('PLAYER 2', x, y);
+    holdNumberPlayer2.style.color = "white"
+    playing = false;
 
+    return;
+}
 
 holdYourCurrent.addEventListener("click", function () {
     if (!playing) {
         return;
     }
 
-    let getCurrent = 0;
+    // let getCurrent = 0;
     if (currentPlayer === 1) {
-        if (parseInt(holdNumberPlayer1.innerHTML) + currentPlayer1 >= gameTarget) {
-            winnerPlayer.classList.add("playerWinner");
-            playing = false;
-            return;
+        if (parseInt(holdNumberPlayer1.innerHTML) + currentPlayer1 === gameTarget) {
+            winnerText.innerHTML=`you win!`
+            playerOneWinner()
+        } else {
+            if (parseInt(holdNumberPlayer1.innerHTML) + currentPlayer1 > gameTarget) {
+                winnerText2.innerHTML=`you win!`
+                winnerText.innerHTML=`passed the target score!`
+                
+                playerTwoWinner()
+
+            }
         }
+
         holdNumberPlayer1.innerHTML = parseInt(holdNumberPlayer1.innerHTML) + currentPlayer1;
         currentPlayer1 = 0;
         currentPlayer1Number.innerHTML = currentPlayer1;
@@ -114,10 +170,15 @@ holdYourCurrent.addEventListener("click", function () {
         player2.classList.toggle("currentplayer");
         currentPlayer = 2;
     } else if (currentPlayer === 2) {
-        if (parseInt(holdNumberPlayer2.innerHTML) + currentPlayer2 >= gameTarget) {
-            winnerPlaye2.classList.add("playerWinner");
-            playing = false;
-            return;
+        if (parseInt(holdNumberPlayer2.innerHTML) + currentPlayer2 === gameTarget) {
+            
+            playerTwoWinner()
+        } else {
+            if (parseInt(holdNumberPlayer2.innerHTML) + currentPlayer2 > gameTarget) {
+
+                playerOneWinner()
+            }
+
         }
         holdNumberPlayer2.innerHTML = parseInt(holdNumberPlayer2.innerHTML) + currentPlayer2;
         currentPlayer2 = 0;
@@ -128,28 +189,43 @@ holdYourCurrent.addEventListener("click", function () {
     }
 })
 
-
+// let colorHolds=rgb(218, 87, 87);
 restartGame.addEventListener("click", function () {
+
     playing = true
+    holdNumberPlayer2.style.color = "rgb(218, 87, 87)";
+    holdNumberPlayer1.style.color = "rgb(218, 87, 87)";
+
+    ctx2.strokeText("PLAYER 1", x2, y2);
+
+    ctx.strokeText("PLAYER 2", x, y);
 
     currentPlayer1 = 0
     currentPlayer2 = 0
+
+    // ctx.fillStyle = '2d';
+    // ctx.fillText('PLAYER 2', x, y);
+    // holdNumberPlayer2.style.color = "black"
+
+    // ctx2.fillStyle = '2d';
+    // ctx2.fillText('PLAYER 1', x, y);
+    // holdNumberPlayer1.style.color = "black"
+
+
     if (currentPlayer === 1) {
         winnerPlayer.classList.remove("playerWinner")
-    } 
+    }
     winnerPlaye2.classList.remove("playerWinner")
 
     currentPlayer1Number.innerHTML = "0"
     currentPlayer2Number.innerHTML = "0"
     holdNumberPlayer1.innerHTML = "0"
     holdNumberPlayer2.innerHTML = "0"
-    // player1.classList.toggle("currentplayer");
     player2.classList.remove("currentplayer");
     player1.classList.add("currentplayer")
+
     currentPlayer = 1;
 })
-
-
 
 
 
