@@ -19,6 +19,8 @@ const getModal = document.querySelector(".modal")
 winnerPlayer.classList.remove("playerWinner")
 winnerPlaye2.classList.remove("playerWinner2")
 const wooHooSound = document.querySelector('#woo-hoo-sound')
+const wooHooSound2 = document.querySelector('#woo-hoo-sound2')
+const wooHooSound3 = document.querySelector('#woo-hoo-sound3')
 
 let canvas = document.querySelector(".playerNameSecondPlayer");
 
@@ -78,6 +80,7 @@ function information() {
 
 
 rollButton.addEventListener("click", function () {
+    wooHooSound2.play()
     if (playing) {
         const randomNumber = Math.floor(Math.random() * 6) + 1;
         const randomNumber2 = Math.floor(Math.random() * 6) + 1;
@@ -94,6 +97,7 @@ rollButton.addEventListener("click", function () {
                     currentPlayer1 += randomNumber + randomNumber2;
                     currentPlayer1Number.innerHTML = currentPlayer1;
                 } else {
+                    wooHooSound3.play()
                     currentPlayer1 = 0;
                     currentPlayer1Number.innerHTML = currentPlayer1;
                     currentPlayer = 2;
@@ -107,6 +111,7 @@ rollButton.addEventListener("click", function () {
                     currentPlayer2 += randomNumber + randomNumber2;
                     currentPlayer2Number.innerHTML = currentPlayer2;
                 } else {
+                    wooHooSound3.play()
                     currentPlayer2 = 0;
                     currentPlayer2Number.innerHTML = currentPlayer2;
                     currentPlayer = 1;
@@ -139,6 +144,9 @@ function playerTwoWinner() {
 }
 
 holdYourCurrent.addEventListener("click", function () {
+    wooHooSound3.play()
+
+
     if (!playing) {
         return;
     }
@@ -157,7 +165,6 @@ holdYourCurrent.addEventListener("click", function () {
 
             }
         }
-
         holdNumberPlayer1.innerHTML = parseInt(holdNumberPlayer1.innerHTML) + currentPlayer1;
         currentPlayer1 = 0;
         currentPlayer1Number.innerHTML = currentPlayer1;
