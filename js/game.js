@@ -12,40 +12,36 @@ const holdNumberPlayer2 = document.querySelector(".holdNumberSecondPlayer")
 const winnerPlayer = document.querySelector(".playerWinner")
 const winnerPlaye2 = document.querySelector(".playerWinner2")
 const buttonInformations = document.querySelector("buttonInformation")
-const winnerText=document.querySelector(".winnerType")
-const winnerText2=document.querySelector(".winnerType2")
+const winnerText = document.querySelector(".winnerType")
+const winnerText2 = document.querySelector(".winnerType2")
+const restartGame = document.querySelector(".newgame")
+const getModal = document.querySelector(".modal")
+winnerPlayer.classList.remove("playerWinner")
+winnerPlaye2.classList.remove("playerWinner2")
+const wooHooSound = document.querySelector('#woo-hoo-sound')
 
 let canvas = document.querySelector(".playerNameSecondPlayer");
-// const playerTwo=()=>{
+
+/////////////////////////////////////////////////
 let ctx = canvas.getContext("2d");
 ctx.font = "30px Arial";
 let textWidth = ctx.measureText("PLAYER 2").width;
 let x = canvas.width / 2 - textWidth / 2;
 let y = canvas.height / 2;
 ctx.strokeText("PLAYER 2", x, y);
-
-// playerTwo()
+//////////////////////////////////////////////////
 
 
 
 let canvas2 = document.querySelector(".playerName");
-// const playerOne=()=>{
+////////////////////////////////////////////////////////
 let ctx2 = canvas2.getContext("2d");
 ctx2.font = "30px Arial";
 let textWidth2 = ctx2.measureText("PLAYER 1").width;
 let x2 = canvas2.width / 2 - textWidth2 / 2;
 let y2 = canvas2.height / 2;
 ctx2.strokeText("PLAYER 1", x2, y2);
-
-// playerOne()
-
-
-const restartGame = document.querySelector(".newgame")
-const getModal = document.querySelector(".modal")
-
-
-winnerPlayer.classList.remove("playerWinner")
-winnerPlaye2.classList.remove("playerWinner2")
+////////////////////////////////////////////////////////
 
 
 let randomNumber = Math.floor(Math.random() * 6) + 1;
@@ -56,16 +52,15 @@ let currentPlayer2 = 0;
 let currentPlayer = 1;
 let playing = true;
 let gameTarget = 0
-function startGame() {
 
+
+function startGame() {
     gameTarget = parseInt(input.value)
     if (gameTarget > 20 && gameTarget < 500) {
         getModal.style.visibility = "hidden"
     } else {
         alert("wrong")
     }
-
-
 }
 function information() {
     let button = document.querySelector(".buttonInformation");
@@ -86,8 +81,8 @@ rollButton.addEventListener("click", function () {
     if (playing) {
         const randomNumber = Math.floor(Math.random() * 6) + 1;
         const randomNumber2 = Math.floor(Math.random() * 6) + 1;
-        pictureElement.src = `dice-${randomNumber}.png`
-        pictureElement2.src = `dice-${randomNumber2}.png`
+        pictureElement.src = `/assest/dice-${randomNumber}.png`
+        pictureElement2.src = `/assest/dice-${randomNumber}.png`
 
 
         if (currentPlayer === 1) {
@@ -148,16 +143,16 @@ holdYourCurrent.addEventListener("click", function () {
         return;
     }
 
-    // let getCurrent = 0;
     if (currentPlayer === 1) {
         if (parseInt(holdNumberPlayer1.innerHTML) + currentPlayer1 === gameTarget) {
-            winnerText.innerHTML=`you win!`
+            winnerText.innerHTML = `you won!`
+            wooHooSound.play()
             playerOneWinner()
         } else {
             if (parseInt(holdNumberPlayer1.innerHTML) + currentPlayer1 > gameTarget) {
-                winnerText2.innerHTML=`you win!`
-                winnerText.innerHTML=`passed the target score!`
-                
+                winnerText2.innerHTML = `you won!`
+                wooHooSound.play()
+                winnerText.innerHTML = `passed the target score!`
                 playerTwoWinner()
 
             }
@@ -171,10 +166,17 @@ holdYourCurrent.addEventListener("click", function () {
         currentPlayer = 2;
     } else if (currentPlayer === 2) {
         if (parseInt(holdNumberPlayer2.innerHTML) + currentPlayer2 === gameTarget) {
-            
+            winnerText2.innerHTML = `you won!`
+            wooHooSound.play()
+
+
             playerTwoWinner()
         } else {
             if (parseInt(holdNumberPlayer2.innerHTML) + currentPlayer2 > gameTarget) {
+                winnerText.innerHTML = `you won!`
+                wooHooSound.play()
+
+                winnerText2.innerHTML = `passed the target score!`
 
                 playerOneWinner()
             }
@@ -189,10 +191,11 @@ holdYourCurrent.addEventListener("click", function () {
     }
 })
 
-// let colorHolds=rgb(218, 87, 87);
 restartGame.addEventListener("click", function () {
-
+    getModal.style.visibility = "visible"
     playing = true
+    winnerText.innerHTML = ""
+    winnerText2.innerHTML = ""
     holdNumberPlayer2.style.color = "rgb(218, 87, 87)";
     holdNumberPlayer1.style.color = "rgb(218, 87, 87)";
 
@@ -202,15 +205,6 @@ restartGame.addEventListener("click", function () {
 
     currentPlayer1 = 0
     currentPlayer2 = 0
-
-    // ctx.fillStyle = '2d';
-    // ctx.fillText('PLAYER 2', x, y);
-    // holdNumberPlayer2.style.color = "black"
-
-    // ctx2.fillStyle = '2d';
-    // ctx2.fillText('PLAYER 1', x, y);
-    // holdNumberPlayer1.style.color = "black"
-
 
     if (currentPlayer === 1) {
         winnerPlayer.classList.remove("playerWinner")
@@ -223,7 +217,6 @@ restartGame.addEventListener("click", function () {
     holdNumberPlayer2.innerHTML = "0"
     player2.classList.remove("currentplayer");
     player1.classList.add("currentplayer")
-
     currentPlayer = 1;
 })
 

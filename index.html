@@ -10,13 +10,13 @@
 </head>
 
 <body>
+    <audio id="woo-hoo-sound" src="/sound/mixkit-ethereal-fairy-win-sound-2019.wav"></audio>
     <div id="myModal" class="modal">
         <div class="modal-content">
             <button class="buttonInformation" onclick="information()">Game Instructions</button>
-          <!-- <span class="close">&times;</span> -->
-          <p>Enter a number between 20 and 500:</p>
+          <p class="shadowtext">Enter a number between 20 and 500:</p>
           <input type="text" id="input" placeholder="Enter number here">
-          <button onclick="startGame()">Start Game</button>
+          <button class="styleButton" onclick="startGame()">Start Game</button>
         </div>
       </div>
  
@@ -25,8 +25,8 @@
         <div class="firstSide">
             <div class="fiveElement">
                 <button class="newgame">NEW GAME</button>
-                <img src="./dice-3.png" alt="" class="dicePicture1">
-                <img src="./dice-5.png" alt="" class="dicePicture2">
+                <img src="/assest/dice-3.png" alt="" class="dicePicture1">
+                <img src="/assest/dice-5.png" alt="" class="dicePicture2">
                 <button class="rolldice">ROLL DICE</button>
                 <button class="hold">HOLD</button>
             </div>

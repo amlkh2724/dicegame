@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;
 }
+
 @keyframes color {
     0% {
         background: #bebebe;
@@ -29,6 +30,7 @@
     }
 }
 
+
 body {
     font-size: 63.5%;
 }
@@ -41,10 +43,37 @@ body {
     grid-row-gap: 0px;
 }
 
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+
+.shadowtext {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 1rem;
+    color: black;
+    -webkit-box-shadow: 0px 6px 8px 3px rgba(255, 255, 255, 0.84);
+    box-shadow: 0px 6px 8px 3px rgba(255, 255, 255, 0.84);
+}
+
+.styleButton {
+    cursor: pointer;
+    height: 2rem;
+}
+
+.styleButton:hover {
+    background-color: red;
+    color: white;
+}
+
 .firstSide {
-    width: 100% !important;
-    height: 100vh;
-    background-color: rgba(252, 78, 78, 0.887);
+    display: block;
+    background: url(../assest/smoke03.gif) no-repeat center center/cover;
+    max-width: 100%;
+    height: 100%;
 }
 
 .player1-side {
@@ -57,21 +86,18 @@ body {
     width: 100%;
     height: 100vh;
     background-color: rgb(235, 194, 194);
-
-    /* background-color: rgb(226, 164, 164); */
 }
 
 .currentplayer {
     width: 100%;
     height: 100vh;
     background: linear-gradient(0deg, hsl(0deg 0% 30%) 41%, hsl(0deg 0% 73%) 82%, hsl(0deg 0% 98%) 100%);
-    /* background-color: red; */
 }
 
 .lastSide {
+    background: url(../assest/smoke03.gif) no-repeat center center/cover;
     width: 100%;
     height: 100vh;
-    background-color: rgba(86, 42, 86, 0.922)
 }
 
 .flexItem {
@@ -80,38 +106,19 @@ body {
     align-items: center;
 }
 
-.playerName {
-    /* var canvas = document.getElementById("myCanvas");
-var ctx = canvas.getContext("2d");
-ctx.font = "30px Arial";
-ctx.strokeText("Hello World", 10, 50); */
-    /* border: 1px solid black; */
-    /* let canvas = document.getElementById("myCanvas");
-     let ctx = canvas.getContext("2d");
-    ctx.font = "30px Arial";
-     ctx.strokeText("Hello World", 10, 50); */
-    /* font-size: 3rem;
-    font-weight: bold; */
-}
 
 .holdNumber {
-    /* margin-top: 2rem; */
     font-size: 5rem;
     color: rgb(218, 87, 87);
 }
 
 .flexItem2 {
-    /* margin: 10%; */
-    /* gap: 1rem; */
+
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* .playerNameSecondPlayer {
-    font-size: 3rem;
-    font-weight: bold;
-} */
 
 .holdNumberSecondPlayer {
     font-size: 5rem;
@@ -175,20 +182,16 @@ ctx.strokeText("Hello World", 10, 50); */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* width: 0px; */
-    /* left: 252% */
 }
 
 .dicePicture1 {
     width: 5rem;
     height: 5rem;
-    /* background: url(../assest/dice-3.png) no-repeat center center/cover; */
 }
 
 .dicePicture2 {
     width: 5rem;
     height: 5rem;
-    /* background: url(../assest/dice-5.png) no-repeat center center/cover; */
 }
 
 .rolldice {
@@ -196,13 +199,35 @@ ctx.strokeText("Hello World", 10, 50); */
     width: 7rem;
     height: 1.5rem;
     border-radius: 1rem;
+    cursor: pointer;
+    position: relative;
 }
 
 .hold {
+
     border: none;
     width: 5rem;
     border-radius: 1rem;
     height: 1.5rem;
+    cursor: pointer;
+    transition: all 3s;
+    position: relative;
+}
+
+.hold:active {
+    top: calc(-1px + 1%);
+}
+
+.newgame {
+    width: 8rem;
+    height: 1.5rem;
+    cursor: pointer;
+    border: none;
+}
+
+.rolldice:active {
+    top: calc(-1px + 1%);
+
 }
 
 .display {
@@ -211,19 +236,24 @@ ctx.strokeText("Hello World", 10, 50); */
 
 .playerWinner {
     background: black;
+    border: 1px white solid;
     width: 100%;
     height: 100vh;
 }
+
 .playerWinner2 {
     background: black;
+    border: 1px white solid;
+
     width: 100%;
     height: 100vh;
 }
-.containerAllBody{
+
+.containerAllBody {
     position: relative;
 }
-.modal{
-    /* background-color: red; */
+
+.modal {
     position: absolute;
     z-index: 1;
     display: flex;
@@ -232,51 +262,134 @@ ctx.strokeText("Hello World", 10, 50); */
     width: 80%;
     height: 90%;
     background: #2a2f2f;
-
     animation: color 9s infinite;
-
-    /* background-color: rgb(173, 124, 124); */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.containerModal{
- position: absolute;
- /* width: 100px; */
+
+.containerModal {
+    position: absolute;
 }
-.modal{
-    visibility:hidden;
-    /* display: block; */
+
+.modal {
+    visibility: hidden;
 }
-.buttonInformation{
-    /* margin: 2rem; */
+
+.buttonInformation {
     width: 20rem;
     position: absolute;
     top: 0;
     left: 0;
 }
- .buttonInformation ul li {
+
+.buttonInformation ul li {
     line-height: 2rem;
     font-size: 16px;
     font-family: Arial, sans-serif;
 }
-.winnerType{    
+
+.winnerType {
     text-align: center;
     width: 40%;
     color: red;
     font-weight: bold;
     font-size: 1.5rem;
     position: absolute;
-   margin-top: 8%;
+    margin-top: 8%;
 
 }
-.winnerType2{    
+
+.winnerType2 {
     text-align: center;
     width: 40%;
     color: red;
     font-weight: bold;
     font-size: 1.5rem;
     position: absolute;
-   margin-top: 8%;
+    margin-top: 8%;
 
 }
+@media (min-width: 200px) and (max-width: 600px) {
+    .containerAllBody {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+    .firstSide{
+        position:absolute;
+
+    }
+    .lastSide{
+        display: none;
+    }
+    .player1-side {
+ 
+        height: 50vh;
+        background-color: rgb(235, 194, 194);
+    }
+    
+    .player2-side {
+        width: 100%;
+        height: 50vh;
+        background-color: rgb(235, 194, 194);
+    }
+    .flexCurrent {
+        position: absolute;
+        width: 100%;
+        margin-top: 3vh;
+        top: 33%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        gap: 1rem;
+    
+    }
+    .flexCurrent2 {
+        position: absolute;
+        width: 100%;
+        margin-top: 3vh;
+        left: 50%;
+        top: 85% ;
+        transform: translate(-50%, -50%);
+        gap: 1rem;
+    }
+    .holdNumber {
+        position: absolute;
+        margin-top: 6rem;
+        font-size: 3rem;
+        color: rgb(218, 87, 87);
+    }
+    .holdNumberSecondPlayer {
+        position: absolute;
+        margin-top: 6rem;
+        font-size: 3rem;
+        color: rgb(218, 87, 87);
+    }
+    .fiveElement {
+        width: 25rem;
+        margin: 0 auto;
+        left: 14rem;
+        gap: 0.4rem;
+        margin: 0px auto auto;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center; 
+    }
+    .dicePicture1 {
+        width: 3rem;
+        height: 3rem;
+    }
+    
+    .dicePicture2 {
+        width: 3rem;
+        height: 3rem;
+    }
+    
+    
+
+
+    }
+
+
