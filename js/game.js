@@ -61,7 +61,7 @@ function startGame() {
     if (gameTarget > 20 && gameTarget < 500) {
         getModal.style.visibility = "hidden"
     } else {
-        alert("wrong")
+        alert("Invalid number//Enter number between 20 to 500")
     }
 }
 function information() {
