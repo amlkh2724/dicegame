@@ -274,7 +274,7 @@ body {
 }
 
 .modal {
-    visibility: hidden;
+    visibility: visible;
 }
 
 .buttonInformation {
